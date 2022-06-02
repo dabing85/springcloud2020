@@ -20,3 +20,11 @@ eureka:
 #    service-url:
 #      server1: http://eureka7002.com:7002/eureka/
 #      server2: http://eureka7003.com:7003/eureka/
+
+  #  client
+  #  server与client对齐
+  server:
+    #关闭自我保护，默认为true
+    enable-self-preservation: false
+    #心跳的间隔时间，单位毫秒
+    eviction-interval-timer-in-ms: 2000
