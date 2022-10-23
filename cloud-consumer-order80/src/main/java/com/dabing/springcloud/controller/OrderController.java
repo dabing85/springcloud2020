@@ -3,6 +3,7 @@ package com.dabing.springcloud.controller;
 import com.dabing.springcloud.entities.CommonResult;
 import com.dabing.springcloud.entities.Payment;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -31,5 +32,21 @@ public class OrderController {
         log.info("********查询的id：" + id);
         //getForObject两个参数：请求地址，返回的对象类型
         return restTemplate.getForObject(PAYMENT_URL + "/payment/get/" + id, CommonResult.class);
+    }
+
+    @GetMapping("/consumer/payment/getEntity/{id}")
+    public CommonResult<Payment> getPayment2(@PathVariable("id") Long id){
+        log.info("********查询的id：" + id);
+        //getForObject两个参数：请求地址，返回的对象类型
+        ResponseEntity<CommonResult> entity = restTemplate.getForEntity(PAYMENT_URL + "/payment/get/" + id, CommonResult.class);
+
+        //getStatusCode获取状态码，is2xxSuccessful如果是状态码是2xx
+        if(entity.getStatusCode().is2xxSuccessful()){
+            //返回body
+            return entity.getBody();
+        }else{
+            return new CommonResult<>(444, "操作失败");
+        }
+
     }
 }
