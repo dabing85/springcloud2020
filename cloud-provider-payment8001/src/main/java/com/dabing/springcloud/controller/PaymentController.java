@@ -84,6 +84,7 @@ public class PaymentController {
 
     @GetMapping(value = "/payment/feign/timeout")
     public String paymentFeignTimeout(){
+        System.out.println("serverPort = " + serverPort);
         try { TimeUnit.SECONDS.sleep(3); }catch (Exception e) {e.printStackTrace();} //单位秒
         return "测试feign超时，端口："+serverPort;
     }
