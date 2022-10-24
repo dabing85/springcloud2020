@@ -27,3 +27,10 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 9000
+
+
+#开启日志的feign客户端
+logging:
+  level:
+    #feign日志以什么级别监控哪个接口
+    com.dabing.springcloud.service.PaymentFeignService: debug	#写你们自己的包名
