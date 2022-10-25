@@ -10,8 +10,9 @@ eureka:
     service-url:
       #      单机
       #      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
       #集群版  相互注册，相互守望
-      defaultZone: http://eureka7002.com:7002/eureka/, http://eureka7003.com:7003/eureka/
+      #defaultZone: http://eureka7002.com:7002/eureka/, http://eureka7003.com:7003/eureka/
 
 #    defaultZone是固定写法，如果想自定义，需要按以下写法才行：
 #    region: eureka-server
