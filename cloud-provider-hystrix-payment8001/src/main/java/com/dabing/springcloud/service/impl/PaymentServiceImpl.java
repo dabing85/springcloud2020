@@ -22,8 +22,8 @@ public class PaymentServiceImpl implements PaymentService {
     })
     public String payment_Timeout(Integer id){
         //int timeNumber = 3; //正常情况
-        int i = 1/0 ; //模拟非正常情况
-        int timeNumber = 10;  //模拟超时情况
+        //int i = 1/0 ; //模拟非正常情况
+        int timeNumber = 2;  //模拟超时情况
         try { TimeUnit.SECONDS.sleep(timeNumber); }catch (Exception e) {e.printStackTrace();}
         return "线程池："+Thread.currentThread().getName()+"   paymentInfo_TimeOut,id：  "+id+"\t"+"呜呜呜"+" 耗时(秒)"+timeNumber;
     }
