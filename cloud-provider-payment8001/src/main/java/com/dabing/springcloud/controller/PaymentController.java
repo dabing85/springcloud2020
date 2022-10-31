@@ -88,4 +88,9 @@ public class PaymentController {
         try { TimeUnit.SECONDS.sleep(3); }catch (Exception e) {e.printStackTrace();} //单位秒
         return "测试feign超时，端口："+serverPort;
     }
+
+    @GetMapping("/payment/zipkin")
+    public String paymentZipkin(){
+        return "hi ,i'am paymentzipkin server，welcome to atguigu，O(∩_∩)O哈哈~";
+    }
 }
