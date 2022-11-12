@@ -11,4 +11,12 @@ public class CustomerBlockHandler {
     public static CommonResult handleException2(BlockException exception){
         return new CommonResult(2020,"自定义限流处理信息.... CustomerBlockHandler --- 2");
     }
+
+    public static CommonResult blockHandlerMethod(BlockException exception){
+        return new CommonResult(444,"自定义降级规则处理信息.... blockHandlerMethod --- ");
+    }
+
+    public static CommonResult fallbackMethod(BlockException exception){
+        return new CommonResult(444,"异常处理信息.... fallbackMethod --- ");
+    }
 }
